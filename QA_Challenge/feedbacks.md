@@ -12,8 +12,10 @@
 - As at 3pm, i honestly started feeling the loss of all the work knowing its all just an interview, i could just start hacking my way through this now... but i have to try and be disciplined
 - As at 5:30 i had just finished half of checkout form. Skipping the rest and moving to the API...
   - If im lucky, i will get enough time to complete soime ui tests, but for now, i do have 4 of them.
+- Recording test cases on Google sheet is almost a redundant QA practice but keeping a record of test steps has its benefits. For now i opted to abandon the completion.
+  - Perhaps we can find a way to automate this by using playwright `test.step`
 
-6. Sudden magic mouse battery dead, will need 1 hour to charge it to fair level
+1. Sudden magic mouse battery dead, will need 1 hour to charge it to fair level
 
 ---
 

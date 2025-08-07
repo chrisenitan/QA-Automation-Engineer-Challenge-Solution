@@ -1,6 +1,7 @@
 import { test as base, expect } from '@playwright/test';
 import { LimeHomeDesktop } from '@services/ui';
-import { testData as baseTestData } from '@environment/index';
+import { testData as baseTestData } from '@data/index';
+import { apiResponseSchemas as baseApiSchema } from '@data/api_schemas';
 import { Api } from '../../api';
 import { ApiAssertions } from '@services/api/custom_api_assertions';
 
@@ -13,12 +14,20 @@ export const test = base.extend<
     LimeHomeDesktop: LimeHomeDesktop;
     Api: Api;
   },
-  { testData: typeof baseTestData }
+  { testData: typeof baseTestData; apiSchemas: typeof baseApiSchema }
 >({
   testData: [
     // eslint-disable-next-line no-empty-pattern
     async ({}, use) => {
       await use({ ...baseTestData });
+    },
+    { scope: 'worker' }
+  ],
+
+  apiSchemas: [
+    // eslint-disable-next-line no-empty-pattern
+    async ({}, use) => {
+      await use({ ...baseApiSchema });
     },
     { scope: 'worker' }
   ],

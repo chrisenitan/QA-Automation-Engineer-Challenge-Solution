@@ -1,9 +1,12 @@
+import Ajv from 'ajv';
+const ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}
+
 export const ApiAssertions = {
   /**
    * @example
    * expect(200).toBeOkResponse()
    */
-  async toBeOkResponse(status: number) {
+  toBeOkResponse(status: number) {
     const pass = status == 200;
     return pass ? asPass() : asFail(`Expected status to be 200 but found ${status}`);
   },
@@ -11,10 +14,12 @@ export const ApiAssertions = {
   /**
    * @example
    * expect(payload).toBeExpectedPayload(schema)
+   * See AJV https://ajv.js.org/json-schema.html
    */
-  async toBeExpectedPayload(payload: Record<string, any>, schema: Record<string, any>) {
-    const pass = payload && schema && true;
-    return pass ? asPass() : asFail(`Payload does not match expected Schema`);
+  toBeExpectedPayload(payload: Record<string, any>, schema: Record<string, any>) {
+    const validate = ajv.compile(schema);
+    const valid = validate(payload);
+    return valid ? asPass() : asFail(`Payload does not match expected Schema`);
   }
 };
 

@@ -6,6 +6,7 @@
 - For test scenario breakdown, please see `` sheet under /QA_Challenge
 - For details on the conventions I used, please see [contributions](./contributing.md)
 - There is a Feedback document tracking comments on my progress at hourly intervals. See [feedbacks](./QA_Challenge/feedbacks.md)
+- Result for my latest test run can be viewed before overwriting with another test run. `npm run report`
 
 # Introduction
 
