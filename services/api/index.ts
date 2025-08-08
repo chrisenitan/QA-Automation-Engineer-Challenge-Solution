@@ -1,6 +1,6 @@
 import { APIRequestContext, APIResponse } from '@playwright/test';
 
-//wip
+//note that a schema definition exists under data folder. This type is mainly for inline assertions
 type PropertyPayload = { payload: { id: 129 } };
 
 export class Api {

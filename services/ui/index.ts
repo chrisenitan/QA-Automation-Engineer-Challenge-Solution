@@ -28,6 +28,9 @@ export class LimeHomeDesktop {
   }
 }
 
+/**
+ * Methods for test steps that are common to all pages
+ */
 export class AppCommons {
   page: Page;
 

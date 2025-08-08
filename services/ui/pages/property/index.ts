@@ -8,6 +8,7 @@ import { DropDown } from '@services/ui/components/dropdown';
 import { DatePicker } from '@services/ui/components/date_picker';
 
 export type CartModalDataSummary = { removeUnitBtn: Locator; suiteName: string; reserveSuiteBtn: Locator };
+
 export class BasePropertyPage {
   utils: Utils;
   page: Page;
@@ -63,10 +64,11 @@ export class BasePropertyPage {
   async getSuites() {
     const suites = await this.page.getByTestId(ui.property.suitesCells).all();
     const suitesAttributes = await Promise.all(
-      suites.map(s => {
+      suites.map(async s => {
         const cta = s.getByTestId(ui.property.suites.selectBtn); //select, change similar but better to provide precise naming for readability
         return {
-          name: s.locator(`#${ui.property.suites.name}`).innerText(),
+          //!we need a title test id here, h3 is unreliable if Devs later add other headers.
+          name: await s.locator('h3').innerText(),
           selectBtn: cta,
           changeDateBtn: cta
         };
@@ -76,11 +78,11 @@ export class BasePropertyPage {
   }
 
   /**
-   * wip could add a toast validator here later
+   * ? could add a toast validator here later
    */
   async addSuite(args: { suiteName: string; action: 'addThenExplore' | 'addThenReview' }) {
     const { suites } = await this.getSuites();
-    const [suite] = suites.filter(async s => (await s.name).includes(args.suiteName));
+    const [suite] = suites.filter(async s => s.name.includes(args.suiteName));
     await suite.selectBtn.click();
     await this.page
       .getByTestId(ui.cart.addModal)

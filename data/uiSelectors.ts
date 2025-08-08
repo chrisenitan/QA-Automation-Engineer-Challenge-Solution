@@ -5,7 +5,7 @@ const components = {
   },
   dropdowns: {
     cities: {
-      parent: 'qa_city-picker-name', //should be 'qa_open-cities-list' is intercepted by another element
+      parent: 'qa_city-picker-name', //should be 'qa_open-cities-list' but is intercepted by another element
       options: 'qa_cities-list',
       getCityNameId: (cityName: string) => `qa_city-${cityName}`
     }
@@ -24,7 +24,6 @@ const pages = {
     suiteAddress: 'suite__address',
     suitesCells: 'qa-pdp-suite',
     suites: {
-      name: 'suite-info__title-text',
       selectBtn: 'qa-pdp-select-suite-btn',
       changeDateBtn: 'qa-pdp-select-suite-btn' //yes its the same as then select button
     },
@@ -65,6 +64,9 @@ const pages = {
   }
 };
 
+/**
+ * Some values are test-id, others are id or classes. Please check for proper resolution
+ */
 export const ui = {
   ...components,
   ...pages

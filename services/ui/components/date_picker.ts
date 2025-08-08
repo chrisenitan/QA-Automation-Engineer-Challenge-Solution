@@ -9,7 +9,7 @@ export class DatePicker {
   }
 
   /**
-   * wip maybe i can rewrite this later
+   * wip why does it look funny, maybe i can rewrite this later
    * disable linter because y is not reassigned, yes we know, go away
    */
   private removeDateLeadingZero(date: StayDates['checkIn']) {

@@ -11,12 +11,12 @@ test.describe(sut.describeTitle('GET Property API'), utils.addTags('property'), 
     expect(status).toBeOkResponse();
   });
 
-  test('GET a Property returns failed statuses for invalid requests', async ({ Api }) => {
-    const statuses = {
-      404: 123456789890, //!a property will clock this one day
+  test('GET a Property returns failed statuses for invalid requests', utils.addTags('invalidations'), async ({ Api }) => {
+    for (const [key, value] of Object.entries({
+      500: 123456789890,
+      404: 12977674,
       400: 0
-    };
-    for (const [key, value] of Object.entries(statuses)) {
+    })) {
       await test.step(`Assert status code ${key} for invalid request id ${value}`, async () => {
         const { status } = await Api.property.get({ id: value });
         expect(status).toBe(Number.parseInt(key));

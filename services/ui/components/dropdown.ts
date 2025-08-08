@@ -1,6 +1,9 @@
 import { ui } from '@data/uiSelectors';
 import { Page } from 'playwright';
 
+/**
+ * Handles all dropdown Select-variant components
+ */
 export class DropDown {
   page: Page;
   constructor(args: { page: Page }) {

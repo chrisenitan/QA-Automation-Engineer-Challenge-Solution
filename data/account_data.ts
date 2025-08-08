@@ -27,7 +27,7 @@ export const testData = {
     street: faker.location.streetAddress(),
     postCode: faker.location.zipCode('#####'),
     city: faker.location.city(),
-    country: 'Germany',
+    country: 'Germany', //* I think country is a dropdown, typing in seems to choose
     receiveNewsletter: faker.datatype.boolean()
   }
 };

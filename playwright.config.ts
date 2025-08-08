@@ -13,7 +13,7 @@ export default defineConfig({
     locale: 'en-US',
     timezoneId: 'Europe/Berlin',
     trace: 'on',
-    headless: process.env.CI ? true : process.env.PLAYWRIGHT_HEADLESS === 'true',
+    headless: true,
     testIdAttribute: 'data-testid'
   },
   projects: [
@@ -24,7 +24,7 @@ export default defineConfig({
       retries: process.env.CI ? 1 : 0,
       use: {
         permissions: ['clipboard-read', 'clipboard-write'],
-        video: process.env.CI ? 'off' : 'on',
+        video: 'on',
         ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },
         baseURL: sut.baseUrl('desktopApp')

@@ -4,7 +4,6 @@ import { Page, TestInfo } from 'playwright/test';
 
 export class Utils {
   page?: Page;
-
   testInfo?: TestInfo;
   constructor(args?: { page?: Page; testInfo?: TestInfo }) {
     this.testInfo = args?.testInfo;

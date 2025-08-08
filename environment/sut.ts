@@ -8,7 +8,7 @@ export const systemUnderTest = (lang: T.appLanguagesT) => ({
   strings: language[lang],
 
   /**
-   * Allows properly escaped test timeouts
+   * Allows properly escaped test timeouts. Mandate usage.
    */
   waitForTimeout: async (args: { page: Page; timeout: number; reason: string }) => {
     if (args.reason.length < 2) return console.log('invalid timeout escape');
@@ -17,6 +17,9 @@ export const systemUnderTest = (lang: T.appLanguagesT) => ({
     await args.page.waitForTimeout(args.timeout);
   },
 
+  /**
+   * Creates a uniform test title across the suite. Mandate usage.
+   */
   describeTitle(title: string) {
     return `[${title}] › [${process.env.LANGUAGE || 'en'} - ${sutHelper.env()}]`;
   },
