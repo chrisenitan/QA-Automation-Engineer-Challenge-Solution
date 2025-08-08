@@ -1,0 +1,5 @@
+dist
+playwright-report/
+playwright/html-report/
+test-results/
+readme.md

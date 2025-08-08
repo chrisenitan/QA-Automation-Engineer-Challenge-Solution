@@ -1,0 +1,38 @@
+{
+  "name": "limehome-qa-challenge-solution",
+  "description": "API and E2E tests for Limehome Apps",
+  "private": true,
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=20.15.1"
+  },
+  "scripts": {
+    "test": "npx playwright test",
+    "g": "npx playwright test -g",
+    "ui": "npx playwright test --ui",
+    "e2e": "playwright test --project=desktopApp",
+    "api": "playwright test --project=api",
+    "report": "npx playwright show-report playwright/html-report",
+    "lint": "eslint test/**/*.ts -c .eslintrc.json",
+    "check": "npx prettier --write . && npm run lint ./"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^8.2.0",
+    "ajv": "^8.17.1",
+    "axios": "^1.11.0",
+    "date-fns": "^4.1.0",
+    "eslint": "^8.57.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^22.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "dotenv": "^16.4.5",
+    "eslint-plugin-playwright": "^2.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "playwright": "^1.54.2",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  }
+}
